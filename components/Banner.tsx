@@ -13,14 +13,10 @@ const Banner = ({ netflixOriginals }: Props) => {
   const [movie, setMovie] = useState<Movie | null>(null);
 
   useEffect(() => {
-    // Function to set a random movie from netflixOriginals to movie state
+    // set a random movie from netflixOriginals to movie state
     if (netflixOriginals && netflixOriginals.length > 0) {
       setMovie(netflixOriginals[Math.floor(Math.random() * netflixOriginals.length)]);
     }
-
-    // Set a random movie initially
-
-    // Cleanup function to reset the movie state when the component unmounts
     return () => {
       setMovie(null);
     };
