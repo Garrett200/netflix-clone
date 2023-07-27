@@ -22,7 +22,7 @@ const Header = () => {
         }
     }, [])
     return (
-        <header className={`${isScrolled && 'bg-[#141414]'}`}>
+        <header className={`${isScrolled? 'bg-[#141414]' : 'bg-gradient-to-t from-transparent from-20% via-transparent via-10% to-[#141414] to-96%'}`}>
             <div className="flex items-center space-x-2 md:space-x-10">
                 <img
                 src="https://rb.gy/ulxxee"
