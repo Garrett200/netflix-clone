@@ -23,11 +23,11 @@ const Header = () => {
     }, [])
     return (
         <header className={`${isScrolled? 'bg-[#141414]' : 'bg-gradient-to-t from-transparent from-20% via-transparent via-10% to-[#141414] to-96%'}`}>
-            <div className="flex items-center space-x-2 md:space-x-10">
+            <div className="flex items-center space-x-2 md:space-x-10 md:px-5 lg:px-3">
                 <img
                 src="https://rb.gy/ulxxee"
-                width={100}
-                height={100}
+                width={95}
+                height={95}
                 className="cursor-pointer object-contain"
                 />
                 <ul className="hidden space-x-4 md:flex">
@@ -40,7 +40,7 @@ const Header = () => {
             </div>
             <div className="flex items-center space-x-4 text-sm font-light">
                 <SearchIcon className="hidden sm:inline h-6 w-6 cursor-pointer"/>
-                <p className="hidden lg:inline" >Kids</p>
+                <p className="hidden lg:inline font-semibold" >Kids</p>
                 <BellIcon className="h-6 w-6 cursor-pointer"/>
                 <Link href="/account">
                     <img 
