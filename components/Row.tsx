@@ -21,10 +21,11 @@ const Row = ({ title, movies }: Props) => {
 
             const scrollTo =
                 direction === "left" ?
-                    scrollLeft - clientWidth
+                    scrollLeft - clientWidth / 2
                     :
-                    scrollLeft + clientWidth
-                rowRef.current.scrollTo({left: scrollTo, behavior: "smooth"})
+                    scrollLeft + clientWidth / 2
+
+            rowRef.current.scrollTo({ left: scrollTo, behavior: "smooth" })
         }
     }
 
@@ -35,9 +36,14 @@ const Row = ({ title, movies }: Props) => {
                 {title}
             </h2>
             <div className="group relative md:-ml-2">
-                <ChevronLeftIcon className={`absolute top-0 bottom-0 left-2 z-40 m-auto h-9 w-9
-                cursor-pointer opacity-0 transition hover:scale-125 group-hover:opacity-100 ${!isMoved && "hidden"}`}
-                    onClick={() => handleClick("left")} />
+                <div className="absolute top-2 bottom-0 left-2 z-50 h-20 min-2-[180px] cursor-pointer transition duration-200
+                    ease-out md:h-36 md:min-w-[40px] hover:bg-[#141414a2] md:rounded"  style={{'borderRadius':'3px'}}>
+                    <ChevronLeftIcon className={`
+                        absolute top-0 bottom-0 left-0 z-40 m-auto h-9 w-9
+                        cursor-pointer opacity-0 transition hover:scale-125 
+                        group-hover:opacity-100 ${!isMoved && "hidden"}`}
+                        onClick={() => handleClick("left")} />
+                </div>
 
                 <div ref={rowRef} className="flex items-center space-x-0.5 scrollbar-hide overflow-x-auto whitespace-nowrap md:space-x-2.5
                 md:p-2">
@@ -45,9 +51,14 @@ const Row = ({ title, movies }: Props) => {
                         <Thumbnail key={movie.id} movie={movie} />
                     ))}
                 </div>
-                <ChevronRightIcon className={`absolute top-0 bottom-0 right-2 z-40 m-auto h-9 w-9
-                cursor-pointer opacity-0 transition hover:scale-125 group-hover:opacity-100`}
-                    onClick={() => handleClick("right")} />
+                <div className="absolute top-2 bottom-0 right-0 z-50 h-20 min-2-[180px] cursor-pointer transition duration-200
+                    ease-out md:h-36 md:min-w-[40px] hover:bg-[#141414a2] md:rounded"  style={{'borderRadius':'3px'}}>
+                    <ChevronRightIcon className={`
+                        absolute top-0 bottom-0 right-0 z-40 m-auto h-9 w-9
+                        cursor-pointer opacity-0 transition hover:scale-125 
+                        group-hover:opacity-100`}
+                        onClick={() => handleClick("right")} />
+                </div>
             </div>
         </div>
     );
